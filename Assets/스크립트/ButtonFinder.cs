@@ -13,4 +13,5 @@ public class ButtonFinder : MonoBehaviour
         myButton = GameObject.Find(buttonName).GetComponent<Button>();
         Debug.Log(myButton);
     }
+    
 }
