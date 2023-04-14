@@ -2,12 +2,18 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System;
+using TMPro; // TextMeshPro 바꾸기 위한 using 문
 [System.Serializable]
 
 public class QuizManager : MonoBehaviour
 {
+    public TMP_Text life;
     void Update(){
-        Debug.Log(CurrectButton.flag);
+        int publicLife = choiceDifficulty.difficulty;
+        life.text = publicLife.ToString();
+        if(publicLife==0){
+            changeScene.ChangeScene("gameOver");
+        }
     }
 }
 
@@ -18,6 +24,7 @@ public class QuizManager : MonoBehaviour
 // 3. 선택시 정답 여부에 따른 이벤트 생성. ex) (목숨 까이기, 틀렸다는 걸 보여주기)
 // 4. 문제 위치는 Random 함수로 배치.
 
+// @@@@@@@@@@ 완료
 // # 스테이지 클리어시 다음 버튼 활성화.
 // 1. flag 변수에 true, false로 스테이지 클리어 여부 저장
 // 2. true 값이면 object 활성화 / false면 object 비활성화
@@ -30,6 +37,7 @@ public class QuizManager : MonoBehaviour
 // 4. 설정 버튼 우측 상단에 위치 (esc키와 같은 기능)
 // 5. esc 누르면 게임 멈춤.
 
+// @@@@@@@@@@ 완료
 // # 보유한 목숨 보이기.
 // 1. count 변수로 남은 목숨에 따른 이미지 보여주기
 // 2. 이미지 없을시 숫자만 보여주기

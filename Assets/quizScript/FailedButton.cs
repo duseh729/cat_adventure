@@ -8,5 +8,6 @@ public class FailedButton : MonoBehaviour
     public void FailedButtonClicked()
     {
         Debug.Log("틀렸어");
+        choiceDifficulty.difficulty-=1;
     }
 }
