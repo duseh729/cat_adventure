@@ -8,12 +8,15 @@ using TMPro; // TextMeshPro 바꾸기 위한 using 문
 public class QuizManager : MonoBehaviour
 {
     public TMP_Text life;
+
+    public GameObject nextButton;
     void Update(){
         int publicLife = choiceDifficulty.difficulty;
         life.text = publicLife.ToString();
         if(publicLife==0){
             changeScene.ChangeScene("gameOver");
         }
+        nextButton.SetActive(QuestionAndAnswerTextChanger.flag);
     }
 }
 

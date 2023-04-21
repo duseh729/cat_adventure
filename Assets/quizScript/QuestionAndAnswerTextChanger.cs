@@ -14,10 +14,13 @@ public class QuestionAndAnswerTextChanger : MonoBehaviour
 
     public TMP_FontAsset koreanFontAsset; // 한국어 폰트 파일
 
+    public static int trigger = 0;
+    public static bool flag = false;
+
+
     string[] questions = {"아이유가 정답임", "이순신이 정답임", "안중근이 정답임"};
-    string[] firstAnswers = {"아이유", "카리나", "윈터", "이나경"};
-    string[] secondAnswers = {"이순신", "을지문덕", "광개토대왕", "김유신"};
-    string[] thirdAnswers = {"안중근", "윤봉길", "이토 히로부미", "하얼빈"};
+    string[,] answers = {{"아이유", "카리나", "윈터", "이나경"}, {"이순신", "을지문덕", "광개토대왕", "김유신"}, {"안중근", "윤봉길", "이토 히로부미", "하얼빈"}};
+    public static string[] answerList = {"아이유", "이순신", "안중근"};
 
     void Start(){
         // 한국어 폰트 설정
@@ -26,15 +29,21 @@ public class QuestionAndAnswerTextChanger : MonoBehaviour
         {
             textMeshProUGUI.font = koreanFontAsset; // 한국어 폰트 파일 할당
         }
+    }
+    void Update(){
+        if (trigger == 3){
+            trigger = 2;
+            flag=true;
+        }
 
-        // questionTextObject의 Text 컴포넌트를 가져옴
         Text questionText = questionBox.GetComponent<Text>();
 
-        // Text 컴포넌트의 text 속성을 사용하여 텍스트 변경
-        questionText.text = questions[0];
-        firstAnswerBox.text = firstAnswers[0];
-        secondAnswerBox.text = firstAnswers[1];
-        thirdAnswerBox.text = firstAnswers[2];
-        fourthAnswerBox.text = firstAnswers[3];
+        questionText.text = questions[trigger];
+        firstAnswerBox.text = answers[trigger,0];
+        secondAnswerBox.text =answers[trigger,1];
+        thirdAnswerBox.text = answers[trigger,2];
+        fourthAnswerBox.text =answers[trigger,3];
     }
+    // Start is called before the first frame update
+
 }
