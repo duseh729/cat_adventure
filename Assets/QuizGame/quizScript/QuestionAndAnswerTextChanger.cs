@@ -15,6 +15,7 @@ public class QuestionAndAnswerTextChanger : MonoBehaviour
     public TMP_FontAsset koreanFontAsset; // 한국어 폰트 파일
 
     public static int trigger = 0;
+    // 게임이 끝나기 위한 변수
     public static bool flag = false;
 
 
@@ -32,7 +33,7 @@ public class QuestionAndAnswerTextChanger : MonoBehaviour
     }
     void Update(){
         if (trigger == 3){
-            trigger = 2;
+            trigger=2;
             flag=true;
         }
 

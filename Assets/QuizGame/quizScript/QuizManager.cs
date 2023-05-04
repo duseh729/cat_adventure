@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Threading.Tasks; // Thread문 사용을 위한 using 문
 using UnityEngine;
+using UnityEngine.UI;
 using System;
 using TMPro; // TextMeshPro 바꾸기 위한 using 문
 [System.Serializable]
@@ -8,17 +10,25 @@ using TMPro; // TextMeshPro 바꾸기 위한 using 문
 public class QuizManager : MonoBehaviour
 {
     public TMP_Text life;
+    public Button clear;
+    // 다음 버튼 활성화를 위한 변수
+    public static bool nextFlag = false; 
 
-    public GameObject nextButton;
+    public static int publicLife = 10;
+
     void Update(){
-        int publicLife = choiceDifficulty.difficulty;
+        // int publicLife = choiceDifficulty.difficulty;
         life.text = publicLife.ToString();
+
         if(publicLife==0){
             changeScene.ChangeScene("gameOver");
         }
-        nextButton.SetActive(QuestionAndAnswerTextChanger.flag);
+        clear.gameObject.SetActive(QuestionAndAnswerTextChanger.flag);
     }
+
+
 }
+
 
 // 구현해야 하는 것.
 // # 문제 랜덤 위치 (문제는 3개 정도로 구현)
