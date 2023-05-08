@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class NextBtnEvent : MonoBehaviour
 {
+    // button 오브젝트 가져오는 코드.
     public static Button nextBtn;
     
     void Start(){
@@ -12,6 +13,7 @@ public class NextBtnEvent : MonoBehaviour
     }
 
     void Update(){
+        // 오브젝트 활성화/비활성화 하는 코드.
         nextBtn.gameObject.SetActive(QuizManager.nextFlag);
     }
 

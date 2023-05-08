@@ -9,12 +9,17 @@ using UnityEngine;
 public class AnswerReader : MonoBehaviour
 {    
     private string answer;
+    // 답 선택시 답배열에 답이 있는지 확인하는 함수.
     public void AnswerReaderHandler()
     {
+        // 클릭한 button의 text를 가져와서 answer 변수에 넣음.
         TextMeshProUGUI textMesh = GetComponentInChildren<TextMeshProUGUI>();
         answer = textMesh.text;
-        Debug.Log(answer);
+        // 배열에 답을 확인하는 함수.
         if (Array.IndexOf(QuestionAndAnswerTextChanger.answerList, answer) != -1){
+            if (QuestionAndAnswerTextChanger.trigger>=2){
+                changeScene.ChangeScene("index");
+            }
             Debug.Log("맞는 답이야");
             QuizManager.nextFlag = true;
             NextBtnEvent.nextBtn.gameObject.SetActive(QuizManager.nextFlag);

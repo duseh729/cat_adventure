@@ -10,20 +10,22 @@ using TMPro; // TextMeshPro 바꾸기 위한 using 문
 public class QuizManager : MonoBehaviour
 {
     public TMP_Text life;
-    public Button clear;
     // 다음 버튼 활성화를 위한 변수
     public static bool nextFlag = false; 
+    public static bool clearFlag = false;
 
     public static int publicLife = 10;
 
     void Update(){
+        // 목숨 수를 life 오브젝트에 넣는 함수.
         // int publicLife = choiceDifficulty.difficulty;
         life.text = publicLife.ToString();
 
+        // 목숨이 0이 되면 gameOver 화면으로 넘어가게 함.
         if(publicLife==0){
             changeScene.ChangeScene("gameOver");
         }
-        clear.gameObject.SetActive(QuestionAndAnswerTextChanger.flag);
+        // 클리어 버튼 활성화/비활성화 하기 위한 코드.
     }
 
 
