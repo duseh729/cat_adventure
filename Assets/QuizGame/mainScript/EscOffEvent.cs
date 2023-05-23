@@ -5,6 +5,6 @@ using UnityEngine;
 public class EscOffEvent : MonoBehaviour
 {
     public void EscBtnClick(){
-        mainManager.escFlag = false;
+        EscManager.escFlag = false;
     }
 }

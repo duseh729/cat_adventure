@@ -13,12 +13,13 @@ public class QuizManager : MonoBehaviour
     // 다음 버튼 활성화를 위한 변수
     public static bool nextFlag = false; 
     public static bool clearFlag = false;
-
-    public static int publicLife = 10;
-
-    void Update(){
+    public static int publicLife = choiceDifficulty.difficulty;
+    // public static int publicLife = 10
+    void Start(){
+        publicLife = choiceDifficulty.difficulty;
+    }
+    void Update(){        
         // 목숨 수를 life 오브젝트에 넣는 함수.
-        // int publicLife = choiceDifficulty.difficulty;
         life.text = publicLife.ToString();
 
         // 목숨이 0이 되면 gameOver 화면으로 넘어가게 함.
