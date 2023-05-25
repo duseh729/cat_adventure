@@ -11,12 +11,11 @@ public class QuizManager : MonoBehaviour
 {
     public TMP_Text life;
     // 다음 버튼 활성화를 위한 변수
-    public static bool nextFlag = false; 
     public static bool clearFlag = false;
-    public static int publicLife = choiceDifficulty.difficulty;
-    // public static int publicLife = 10
+    // public static int publicLife = choiceDifficulty.difficulty;
+    public static int publicLife = 10;
     void Start(){
-        publicLife = choiceDifficulty.difficulty;
+        // publicLife = choiceDifficulty.difficulty;
     }
     void Update(){        
         // 목숨 수를 life 오브젝트에 넣는 함수.

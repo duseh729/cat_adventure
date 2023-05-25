@@ -9,6 +9,7 @@ using UnityEngine;
 public class AnswerReader : MonoBehaviour
 {    
     private string answer;
+    public static bool correctAnswerTrigger = false;
     // 답 선택시 답배열에 답이 있는지 확인하는 함수.
     public void AnswerReaderHandler()
     {
@@ -17,16 +18,13 @@ public class AnswerReader : MonoBehaviour
         answer = textMesh.text;
         // 배열에 답을 확인하는 함수.
         if (Array.IndexOf(QuestionAndAnswerTextChanger.answerList, answer) != -1){
-            if (QuestionAndAnswerTextChanger.trigger>=2){
-                changeScene.ChangeScene("index");
-            }
-            Debug.Log("맞는 답이야");
-            QuizManager.nextFlag = true;
-            NextBtnEvent.nextBtn.gameObject.SetActive(QuizManager.nextFlag);
-            // QuestionAndAnswerTextChanger.trigger ++;
-        }else{
-            Debug.Log("hihi");
-            // choiceDifficulty.difficulty-=1;
+            NextBtnEvent.nextFlag = true;
+            correctAnswerTrigger = true;
+            NextBtnEvent.nextBtn.gameObject.SetActive(NextBtnEvent.nextFlag);
+
+            TimeManager.isQuizTimeRunning = false;
+        }else if (correctAnswerTrigger){}
+        else{
             QuizManager.publicLife--;
         }
     } 
