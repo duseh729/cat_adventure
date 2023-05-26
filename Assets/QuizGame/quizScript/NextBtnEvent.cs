@@ -30,10 +30,14 @@ public class NextBtnEvent : MonoBehaviour
         if (QuestionAndAnswerTextChanger.trigger>=2){
             changeScene.ChangeScene("index");
         }
+        if (TimeManager.timeOverTrigger){
+            QuizManager.publicLife--;
+        }
         // next 버튼 클릭 후 처리.
         QuestionAndAnswerTextChanger.trigger++;
         TimeManager.time = 3;
         TimeManager.isQuizTimeRunning = true;
+        nextBtn.gameObject.SetActive(false);
         nextFlag=false;
         AnswerReader.correctAnswerTrigger = false;
     }
